@@ -7,7 +7,7 @@ dados = pd.read_csv("microdados_ed_basica_2023.csv", encoding="ISO-8859-1", deli
 # Capturando os dados pela sigla PB
 dados_pb = dados[dados["SG_UF"] == "PB"]
 
-# Lista onde será inserido o ojeto json
+# Lista onde será inserido o objeto json
 censo_escolar = []
 
 # Iterando as linhas das colunas para um formato json
@@ -20,11 +20,9 @@ for _, row in dados_pb.iterrows():
         "microregião": row["NO_MICRORREGIAO"],
         "entidade": row["NO_ENTIDADE"]
     }
-    # Adicionando o objeto json a lista
+    # Adicionando o objeto json à lista
     censo_escolar.append(censo)
 
-# Extraindo os dados para o objeto json em um arquivo .js
-with open("censo_escolar.js", "w", encoding="utf-8") as js_file:
-    js_file.write("let censo_escolar = ")
-    js_file.write(json.dumps(censo_escolar, ensure_ascii=False, indent=2))
-    js_file.write(";")
+# Salvando os dados em um arquivo JSON
+with open("censo_escolar.json", "w", encoding="utf-8") as json_file:
+    json.dump(censo_escolar, json_file, ensure_ascii=False, indent=2)
