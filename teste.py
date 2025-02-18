@@ -18,7 +18,14 @@ for _, row in dados_pb.iterrows():
         "município": row["NO_MUNICIPIO"],
         "mesoregião": row["NO_MESORREGIAO"],
         "microregião": row["NO_MICRORREGIAO"],
-        "entidade": row["NO_ENTIDADE"]
+        "entidade": row["NO_ENTIDADE"],
+        "matrículas base": row["QT_MAT_BAS"],
+        "matrículas infantil": row["QT_MAT_INF"],
+        "matrículas fundamental": row["QT_MAT_FUND"],
+        "matrículas médio": row["QT_MAT_MED"],
+        "matrículas educação profissional": row["QT_MAT_PROF"],
+        "matrículas EJA": row["QT_MAT_EJA"],
+        "matrículas educação especial": row["QT_MAT_ESP"],
     }
     # Adicionando o objeto json à lista
     censo_escolar.append(censo)
